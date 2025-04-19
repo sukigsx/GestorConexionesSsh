@@ -6,8 +6,8 @@
 
 export NombreScript="GestionConexionesSsh"
 export DescripcionDelScript="Gestiona varias conexiones SSH"
-export Correo="mi correo@popo.es"
-export Web="https://mipweb.com"
+export Correo="scripts@mbbsistemas.es"
+export Web="https://github.com/sukigsx?tab=repositories"
 export version="1.0"
 conexion="Sin comprobar"
 software="Sin comprobar"
@@ -19,7 +19,7 @@ ruta_escritorio=$(xdg-user-dir DESKTOP) #es la ruta de tu escritorio sin la / al
 
 # VARIABLES PARA LA ACTUALIZAION CON GITHUB
 NombreScriptActualizar="GestionConexionesSsh.sh" #contiene el nombre del script para poder actualizar desde github
-DireccionGithub="https://github.com/sukigsx/pruebas" #contiene la direccion de github para actualizar el script
+DireccionGithub="https://github.com/sukigsx/GestorConexionesSsh" #contiene la direccion de github para actualizar el script
 
 #VARIABLES DE SOFTWARE NECESARIO
 software="ping which git diff ssh touch sed sort cut grep fzf" #contiene el software necesario separado por espacios
