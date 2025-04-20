@@ -8,7 +8,7 @@ export NombreScript="GestionConexionesSsh"
 export DescripcionDelScript="Gestiona varias conexiones SSH"
 export Correo="scripts@mbbsistemas.com"
 export Web="https://github.com/sukigsx?tab=repositories"
-export version="1.0aa0"
+export version="1.0a0"
 conexion="Sin comprobar"
 software="Sin comprobar"
 actualizado="No se ha podido comprobar la actualizacion del script"
@@ -477,9 +477,27 @@ crear_alias(){
 }
 
 eliminar_script(){
-    hay_servidores_menu || return
-    echo "eliminando"
-    read p
+    echo -e ""
+    read "$(echo -e "${rojo} Eliminar script y todas las conexiones si existen?${borra_colores} (s/n)" ${rojo}->${borra_colores} )" sino
+    if [$sino = "s" ] || [ $sino = "S" ]; then
+        echo -e "${verde} Eliminadas las claves rsa si existen.${borra_colores}"
+        rm -f $HOME/.ssh/id_rsa_* $HOME/.ssh/id_rsa_*.pub
+        echo ""; sleep 1
+
+        echo -e "${verde} Eliminando si existe las entrdas de $HOME/.bashrc${borra_colores}"
+        sed -i '/crear_alias/d' "$HOME/.bashrc"
+        echo ""; sleep 1
+
+        echo -e "${verde} Eliminado ficheros del script${borra_colores}"
+        ruta_ejecucion=$(dirname "$(readlink -f "$0")")
+        rm $ruta_ejecucion/crear_alias
+        rm $ruta_ejecucion/GestionConexionesSsh.sh
+        echo ""
+        ctrl_c
+    else
+        echo ""
+        echo -e "${verde} No se borra nada${borra_colores}"; sleep 2
+    fi
 }
 
 principal(){
