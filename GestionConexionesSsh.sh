@@ -8,7 +8,7 @@ export NombreScript="GestionConexionesSsh"
 export DescripcionDelScript="Gestiona varias conexiones SSH"
 export Correo="scripts@mbbsistemas.com"
 export Web="https://github.com/sukigsx?tab=repositories"
-export version="1.0a0aa00"
+export version="1.0a0aass00"
 conexion="Sin comprobar"
 software="Sin comprobar"
 actualizado="No se ha podido comprobar la actualizacion del script"
@@ -478,8 +478,8 @@ crear_alias(){
 
 eliminar_script(){
     echo -e ""
-    read -p "$(echo -e "${rojo} Eliminar script y todas las conexiones si existen?${borra_colores} (s/n)" ${rojo}->${borra_colores} )" sino
-    if [$sino = "s" ] || [ $sino = "S" ]; then
+    read -p "$(echo -e "${rojo} Eliminar script y todas las conexiones si existen?${borra_colores} (s/n) ${rojo}->${borra_colores} ")" sino
+    if [ $sino = "s" ] || [ $sino = "S" ]; then
         echo -e "${verde} Eliminadas las claves rsa si existen.${borra_colores}"
         rm -f $HOME/.ssh/id_rsa_* $HOME/.ssh/id_rsa_*.pub
         echo ""; sleep 1
