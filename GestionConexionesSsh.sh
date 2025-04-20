@@ -8,7 +8,7 @@ export NombreScript="GestionConexionesSsh"
 export DescripcionDelScript="Gestiona varias conexiones SSH"
 export Correo="scripts@mbbsistemas.com"
 export Web="https://github.com/sukigsx?tab=repositories"
-export version="1.0aaaaa0"
+export version="1.0aa0"
 conexion="Sin comprobar"
 software="Sin comprobar"
 actualizado="No se ha podido comprobar la actualizacion del script"
@@ -215,6 +215,8 @@ mostrar_menu() {
     echo -e "    ${azul}5)${borra_colores} Realizar backup de configuración"
     echo -e "    ${azul}6)${borra_colores} Restaurar backup de configuración"
     echo -e "    ${azul}7)${borra_colores} Crear alias de acceso rapido a tus servidores"
+    echo -e ""
+    echo -e "   ${azul}90)${borra_colores} Eliminar este script completo"
     echo -e "   ${azul}99)${borra_colores} Salir"
 }
 
@@ -474,6 +476,12 @@ crear_alias(){
     esac
 }
 
+eliminar_script(){
+    hay_servidores_menu || return
+    echo "eliminando"
+    read p
+}
+
 principal(){
 # Detectar la terminal disponible antes de iniciar el menú
 detectar_terminal
@@ -492,7 +500,8 @@ while true; do
         5) backup_config ;;
         6) restaurar_config ;;
         7) crear_alias ;;
-        99) ctrl_c ;;
+       90) eliminar_script ;;
+       99) ctrl_c ;;
         *) echo ""; echo -e "${amarillo} Opción no valida.${borra_colores}"; sleep 2 ;;
     esac
     echo
