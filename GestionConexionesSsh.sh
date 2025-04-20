@@ -8,7 +8,7 @@ export NombreScript="GestionConexionesSsh"
 export DescripcionDelScript="Gestiona varias conexiones SSH"
 export Correo="scripts@mbbsistemas.com"
 export Web="https://github.com/sukigsx?tab=repositories"
-export version="1.0k0"
+export version="1.00"
 conexion="Sin comprobar"
 software="Sin comprobar"
 actualizado="No se ha podido comprobar la actualizacion del script"
@@ -169,7 +169,7 @@ echo -e "${rosa} \__ \ |_| |   <| | (_| \__ \>  <   ${azul}   Conexion Internet 
 echo -e "${rosa} |___/\__,_|_|\_\_|\__, |___/_/\_\  ${azul}   Software necesario =${borra_colores} $software"
 echo -e "${rosa}                  |___/             ${azul}   Actualizado        =${borra_colores} $actualizado"
 echo -e ""
-echo -e "${azul} Contacto:${borra_colores} (Correo $Correo) (Web $Web)${borra_colores}"
+echo -e "${azul} Contacto: (Correo$[borra_colores] $Correo${azul}) (Web${borra_colores} $Web${azul})${borra_colores}"
 echo ""
 }
 
