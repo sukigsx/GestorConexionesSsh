@@ -493,10 +493,12 @@ eliminar_script(){
         rm $ruta_ejecucion/crear_alias
         rm $ruta_ejecucion/GestionConexionesSsh.sh
         rm $SERVER_LIST
+        clear
         echo ""
-        echo -e "${verde} Gracias por haber utilizado mi script${borra_colores}"
+        echo -e "${verde} --- GRACIAS POR HABER UTILIZADO MI SCRIPT ---${borra_colores}"
         echo ""
         sleep 5
+        exit
     else
         echo ""
         echo -e "${verde} No se borra nada${borra_colores}"; sleep 2
