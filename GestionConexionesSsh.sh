@@ -8,7 +8,7 @@ export NombreScript="GestionConexionesSsh"
 export DescripcionDelScript="Gestiona varias conexiones SSH"
 export Correo="scripts@mbbsistemas.com"
 export Web="https://github.com/sukigsx?tab=repositories"
-export version="1.00"
+export version="1.0k0"
 conexion="Sin comprobar"
 software="Sin comprobar"
 actualizado="No se ha podido comprobar la actualizacion del script"
@@ -428,33 +428,44 @@ crear_alias(){
     echo ""
     echo -e "${azul} -- Crear alias de conexion a servidores ssh --${borra_colores}"
     echo -e ""
-    echo -e "${azul}  1)${borra_colores}  Puedes instalar mi script de creacion de alias"
+    echo -e "${azul} 1)${borra_colores} Puedes instalar mi script de creacion de alias"
+    echo -e "${azul} 2)${borra_colores} Que lo ponga automaticamente este script"
+    echo -e "${azul} 3)${borra_colores} Borrar alias que tengas en tu $HOME/.bashrc"
     echo -e ""
-    echo -e "${azul}  2)${borra_colores}  Que lo ponga automaticamente este script."
-    echo -e "      Creara una linea en tu -bashrc como la siguiente"
-    echo -e "      (alias sshon='bash $ruta_ejecucion/crear_alias')"
+    echo -e "${azul} 99)${borra_colores} No hacer nada y regresar."
     echo -e ""
-    echo -e "${azul} 99)${borra_colores}  No hacer nada y regresar."
-    echo -e ""
-    read -p " ¿ Que forma eliges la 1 o la 2 ? -> " opcion_alias
+    read -p "$(echo -e "${azul} Selecciona una opcion -> ${borra_colores}")" opcion_alias
     case $opcion_alias in
         1)  echo ""
-            echo -e "Puedes instalar mi script de creacion de alias."
-            echo -e "   Cracion de alias https://github.com/sukigsx/alias_bashrc"
-            echo -e "   GitHub de Sukigsx $Web"
-            echo -e "Lo instalas le das un nombre de alias ej. sshon"
-            echo -e "y le pasas este comando (bash $ruta_ejecucion/crear_alias)"
-            echo -e "${amarillo}"
-            read -p " Pulsa una tecla para continuar." pause
-            echo -e "${borra_colores}"
+            echo -e "${verde} Puedes instalar mi script de creacion de alias.${borra_colores}"
+            echo -e "${verde}   Lo puedes encontar en:${borra_colores}"
+            echo -e "${verde}   - Cracion de alias${borra_colores} https://github.com/sukigsx/alias_bashrc"
+            echo -e "${verde}   - GitHub de Sukigsx${borra_colores} $Web"
+            echo -e ""
+            echo -e "${verde} Lo instalas le das un nombre de alias ej. sshon${borra_colores}"
+            echo -e "${verde} y le pasas este comando al alias (${borra_colores} bash $ruta_ejecucion/crear_alias${verde} )${borra_colores}"
+            echo -e ""
+            read -p "$(echo -e " ${amarillo}Pulsa una tecla para continuar.${borra_colores}")" pause
             ;;
 
         2)  #borra el alias si existe y lo crea de nuevo
+            echo -e "${verde} Configurando tu $HOME/.bashrc${borra_colores}"; sleep 1
             texto="crear_alias"
             archivo="$HOME/.bashrc"
             sed -i '/crear_alias/d' "$HOME/.bashrc"
             echo "# crear_alias para el script de GestionConexionesSsh" >> $HOME/.bashrc
             echo "sshon='bash $ruta_ejecucion/crear_alias'" >> $HOME/.bashrc
+            echo ""
+            echo -e "${verde} Alias creado,${amarillo} REINICIA TU TERMINAL${verde}.${borra_colores}"
+            echo -e "${verde} comando para tu alias creado =${borra_colores} sshon"
+            echo ""
+            read -p "$(echo -e " ${amarillo}Pulsa una tecla para continuar.${borra_colores}")" pause
+            ;;
+
+        3)  #borrar el alias del .bashrc
+            sed -i '/crear_alias/d' "$HOME/.bashrc"
+            echo ""
+            echo -e "${verde} Borrado el alias del${borra_colores} $HOME/.bashrc"; sleep 3
             ;;
 
         99) return ;;
