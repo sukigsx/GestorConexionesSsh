@@ -8,7 +8,7 @@ export NombreScript="GestionConexionesSsh"
 export DescripcionDelScript="Gestiona varias conexiones SSH"
 export Correo="scripts@mbbsistemas.com"
 export Web="https://github.com/sukigsx?tab=repositories"
-export version="1.0a0"
+export version="1.0a000"
 conexion="Sin comprobar"
 software="Sin comprobar"
 actualizado="No se ha podido comprobar la actualizacion del script"
@@ -492,6 +492,7 @@ eliminar_script(){
         ruta_ejecucion=$(dirname "$(readlink -f "$0")")
         rm $ruta_ejecucion/crear_alias
         rm $ruta_ejecucion/GestionConexionesSsh.sh
+        rm $SERVER_LIST
         echo ""
         ctrl_c
     else
