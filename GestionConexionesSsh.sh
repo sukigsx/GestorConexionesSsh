@@ -8,7 +8,7 @@ export NombreScript="GestionConexionesSsh"
 export DescripcionDelScript="Gestiona varias conexiones SSH"
 export Correo="scripts@mbbsistemas.com"
 export Web="https://github.com/sukigsx?tab=repositories"
-export version="1.0a0aass00"
+export version="1.0ass00"
 conexion="Sin comprobar"
 software="Sin comprobar"
 actualizado="No se ha podido comprobar la actualizacion del script"
@@ -494,7 +494,9 @@ eliminar_script(){
         rm $ruta_ejecucion/GestionConexionesSsh.sh
         rm $SERVER_LIST
         echo ""
-        ctrl_c
+        echo -e "${verde} Gracias por haber utilizado mi script${borra_colores}"
+        echo ""
+        sleep 5
     else
         echo ""
         echo -e "${verde} No se borra nada${borra_colores}"; sleep 2
